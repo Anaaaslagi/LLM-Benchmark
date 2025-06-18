@@ -85,95 +85,9 @@ Which tracks have palindromic titles (e.g., same forward and backward)?
 Which track names follow the pattern "[verb]-[verb]" (like "Runtuh-Bangun")?
 ```
 ### Query Result on LLM
-#### ChatGPT 4.1 (SQL)
-```
-"SELECT track, release_date
-FROM dataset_spotify_indonesia
-WHERE track = 'To the Bone'
-"	"SELECT COUNT(DISTINCT artist) AS unique_artists
-FROM dataset_spotify_indonesia
-"	"SELECT DISTINCT album
-FROM dataset_spotify_indonesia
-WHERE artist = 'Tulus'
-"	"SELECT track
-FROM dataset_spotify_indonesia
-WHERE release_date > '2020' AND artist <> 'Tulus'
-"	"SELECT track
-FROM dataset_spotify_indonesia
-WHERE track LIKE 'Hati%'
-"
-			"SELECT artist
-FROM dataset_spotify_indonesia
-WHERE release_date LIKE '2019%' OR release_date LIKE '2022%'
-GROUP BY artist
-HAVING COUNT(DISTINCT CASE WHEN release_date LIKE '2019%' THEN 1 END) > 0
-   AND COUNT(DISTINCT CASE WHEN release_date LIKE '2022%' THEN 1 END) > 0
-"	
-		"SELECT track
-FROM dataset_spotify_indonesia
-WHERE album_id = (
-  SELECT album_id
-  FROM dataset_spotify_indonesia
-  WHERE track = 'Hati-Hati di Jalan'
-)
-"	"SELECT track
-FROM dataset_spotify_indonesia
-WHERE release_date < '2018' AND album <> 'Monokrom'
-"	"SELECT DISTINCT artist
-FROM dataset_spotify_indonesia
-WHERE LENGTH(TRIM(artist)) - LENGTH(REPLACE(TRIM(artist), ' ', '')) = 1
-"
-	"SELECT MIN(release_date) AS earliest_release
-FROM dataset_spotify_indonesia
-"		"SELECT album
-FROM dataset_spotify_indonesia
-WHERE release_date > '2020'
-GROUP BY album
-HAVING COUNT(track_id) > 3
-"	"SELECT DISTINCT album
-FROM dataset_spotify_indonesia
-WHERE album REGEXP '(.)\\1'
-"
-		"SELECT track
-FROM dataset_spotify_indonesia
-WHERE artist = (
-  SELECT artist
-  FROM dataset_spotify_indonesia
-  WHERE track = 'Monokrom'
-)
-"	"SELECT artist
-FROM dataset_spotify_indonesia
-GROUP BY artist
-HAVING COUNT(DISTINCT album_id) > 1
-"	"SELECT track
-FROM dataset_spotify_indonesia
-WHERE track REGEXP '[0-9]'
-"
-		"SELECT DISTINCT d2.track
-FROM dataset_spotify_indonesia d1
-JOIN dataset_spotify_indonesia d2
-  ON d1.album_id = d2.album_id
-WHERE d1.release_date LIKE '2021%'
-"	"SELECT track
-FROM dataset_spotify_indonesia
-WHERE LOWER(track) LIKE '% di %' AND release_date LIKE '2022%'
-"	"SELECT track
-FROM dataset_spotify_indonesia
-WHERE track = REVERSE(track)
-"
-		"SELECT artist
-FROM dataset_spotify_indonesia
-GROUP BY artist
-HAVING COUNT(DISTINCT album_id) > 1
-"	"SELECT album
-FROM dataset_spotify_indonesia
-GROUP BY album
-HAVING COUNT(DISTINCT SUBSTR(release_date,1,4)) > 1
-"	"SELECT track
-FROM dataset_spotify_indonesia
-WHERE track REGEXP '^[A-Za-z]+-[A-Za-z]+$'
-"
-```
+URL: https://docs.google.com/spreadsheets/d/1elxCfyEeagFs3zEaOrNPKuyKvUeRxQSuJzcHz0joD1M/edit?usp=sharing
+
+
 ### Final Score Benchmarking LLM (ChatGPT, Gemini, Claude)
 ![image](https://github.com/user-attachments/assets/9f758fc1-0d84-4b56-af0c-3aead0c4cce7)
 
