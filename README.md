@@ -84,3 +84,11 @@ List all tracks with titles containing numeric characters.
 Which tracks have palindromic titles (e.g., same forward and backward)?                        
 Which track names follow the pattern "[verb]-[verb]" (like "Runtuh-Bangun")?
 ```
+
+### Hasil Score Benchmark LLM
+![image](https://github.com/user-attachments/assets/9f758fc1-0d84-4b56-af0c-3aead0c4cce7)
+
+### Kesimpulan
+
+Berdasarkan hasil pengujian, dapat disimpulkan bahwa Gemini 2.5 Flash menunjukkan performa terbaik dalam menghasilkan query Cypher, diikuti oleh ChatGPT 4.1 di posisi kedua. Sementara itu, untuk pembuatan query SQL, ChatGPT 4.1 memberikan hasil yang paling akurat dibandingkan model lainnya. Temuan ini menunjukkan bahwa setiap model LLM memiliki keunggulan masing-masing tergantung pada jenis query yang dihasilkan, sehingga pemilihan model sebaiknya disesuaikan dengan kebutuhan aplikasi dan basis data yang digunakan.
+
